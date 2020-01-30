@@ -7,11 +7,13 @@ namespace Hammer.Models
 {
     public class Employee
     {
-        public int employeeNo { get; set; }
+        public int employeeId { get; set; }
         public string employeeName { get; set; }
         public decimal salary { get; set; }
-        public string departmentNo { get; set; }
+        public string departmentId { get; set; }
         public DateTime lastModifyDate { get; set; }
+
+        public virtual ICollection<Department> Departments { get; set; }
 
     }
 }

@@ -7,9 +7,9 @@ namespace Hammer.Models
 {
     public class Department
     {
-        public int departmentNo { get; set; }
+        public int departmentId { get; set; }
         public string departmentName { get; set; }
         public string departmentLocation { get; set; }
-
+        public virtual ICollection<Employee> Employees { get; set; }
     }
 }

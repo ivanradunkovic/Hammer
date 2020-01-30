@@ -7,8 +7,10 @@ namespace Hammer.Models
 {
     public class Login
     {
-        public int loginNo { get; set; }
+        
+        public int loginId { get; set; }
         public string loginUserName { get; set; }
-        public string loginPassword { get; set; }     
+        public string loginPassword { get; set; }
+        public virtual ICollection<Employee> Employees { get; set; }
     }
 }
