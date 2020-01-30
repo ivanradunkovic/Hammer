@@ -11,15 +11,15 @@ namespace Hammer.DAL
     public class CompanyContext : DbContext
     {
         public CompanyContext() : base("CompanyContext")
-    {
-    }
-    public DbSet<Login> Logins { get; set; }
-    public DbSet<Department> Departments { get; set; }
-    public DbSet<Employee> Employees { get; set; }
+        {
+        }
+        public DbSet<Login> Logins { get; set; }
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<Employee> Employees { get; set; }
 
-    protected override void OnModelCreating(DbModelBuilder modelBuilder)
-    {
-        modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
     }
 }
