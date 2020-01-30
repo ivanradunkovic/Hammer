@@ -16,7 +16,7 @@ namespace Hammer.Controllers
         private CompanyContext db = new CompanyContext();
 
         // GET: Employee
-        public ActionResult Index(string sortOrder)
+        public ActionResult Index(string sortOrder, string searchString)
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.SalarySortParam = sortOrder == "Salary" ? "salary_desc" : "Salary";
@@ -24,6 +24,11 @@ namespace Hammer.Controllers
             ViewBag.LMDSortParam = sortOrder == "lastDateModify" ? "lastDateModify_desc" : "lastDateModify";
             var employees = from s in db.Employees
                             select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                employees = employees.Where(s => s.employeeName.Contains(searchString)
+                                       || s.employeeName.Contains(searchString));
+            }
             switch (sortOrder)
             {
                 case "name_desc":

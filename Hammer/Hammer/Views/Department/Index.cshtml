@@ -9,6 +9,13 @@
 <p>
     @Html.ActionLink("Add New Department", "Create")
 </p>
+@using (Html.BeginForm())
+{
+    <p>
+        Find department: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
 <table class="table">
     <tr>
         <th>

@@ -9,6 +9,13 @@
 <p>
     @Html.ActionLink("Add New Employee", "Create")
 </p>
+@using (Html.BeginForm())
+{
+    <p>
+        Find employee by name or surname: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
 <table class="table">
     <tr>
         <th>
@@ -23,7 +30,7 @@
             @Html.ActionLink("Last Modify Date", "Index", new { sortOrder = ViewBag.LMDSortParam })
         </th>
         <th>
-</th>
+        </th>
     </tr>
 
     @foreach (var item in Model)
