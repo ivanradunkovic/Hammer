@@ -9,7 +9,7 @@ namespace Hammer.Models
     {
         public int employeeNo { get; set; }
         public string employeeName { get; set; }
-        public string salary { get; set; }
+        public decimal salary { get; set; }
         public string departmentNo { get; set; }
         public DateTime lastModifyDate { get; set; }
 
