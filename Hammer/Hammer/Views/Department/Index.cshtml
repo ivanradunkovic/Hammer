@@ -1,21 +1,23 @@
 ﻿@model IEnumerable<Hammer.Models.Department>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Departments";
 }
 
-<h2>Index</h2>
+<h2>Departments</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add New Department", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.departmentName)
+            @*@Html.DisplayNameFor(model => model.departmentName) Ovo su defaultne oznake MVC koje povlači iz modela. Dodao sam lable da ljepše izgleda*@
+            <label for="departmentName" class="control-label">Department Name</label>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.departmentLocation)
+            @*@Html.DisplayNameFor(model => model.departmentLocation) Ovo su defaultne oznake MVC koje povlači iz modela. Dodao sam lable da ljepše izgleda*@
+            <label for="departmentLocation" class="control-label">Department Location</label>
         </th>
         <th></th>
     </tr>

@@ -1,27 +1,31 @@
 ﻿@model IEnumerable<Hammer.Models.Employee>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Employees";
 }
 
-<h2>Index</h2>
+<h2>Employees</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add New Employee", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.employeeName)
+            @*@Html.DisplayNameFor(model => model.employeeName) Ovo su defaultne oznake MVC koje povlači iz modela. Dodao sam lable da ljepše izgleda*@
+            <label for="employeeName" class="control-label">Employee Name</label>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.salary)
+            @*@Html.DisplayNameFor(model => model.salary) Ovo su defaultne oznake MVC koje povlači iz modela. Dodao sam lable da ljepše izgleda*@
+            <label for="salary" class="control-label">Salary</label>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.departmentId)
+            @*@Html.DisplayNameFor(model => model.departmentId) Ovo su defaultne oznake MVC koje povlači iz modela. Dodao sam lable da ljepše izgleda*@
+            <label for="departmentId" class="control-label">Department Id</label>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.lastModifyDate)
+            @*@Html.DisplayNameFor(model => model.lastModifyDate) Ovo su defaultne oznake MVC koje povlači iz modela. Dodao sam lable da ljepše izgleda*@
+            <label for="lastModifyDate" class="control-label">Last Modify Date</label>
         </th>
         <th></th>
     </tr>
