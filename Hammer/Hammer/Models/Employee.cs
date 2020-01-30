@@ -10,10 +10,10 @@ namespace Hammer.Models
         public int employeeId { get; set; }
         public string employeeName { get; set; }
         public decimal salary { get; set; }
-        public string departmentId { get; set; }
+        public int departmentId { get; set; }
         public DateTime lastModifyDate { get; set; }
 
-        public virtual ICollection<Department> Departments { get; set; }
+        public virtual ICollection<Employee> Employees { get; set; }
 
     }
 }

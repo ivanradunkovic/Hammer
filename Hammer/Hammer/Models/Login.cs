@@ -11,6 +11,6 @@ namespace Hammer.Models
         public int loginId { get; set; }
         public string loginUserName { get; set; }
         public string loginPassword { get; set; }
-        public virtual ICollection<Employee> Employees { get; set; }
+        public virtual ICollection<Login> Logins { get; set; }
     }
 }
