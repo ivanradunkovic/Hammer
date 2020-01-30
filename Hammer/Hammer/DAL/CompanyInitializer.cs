@@ -46,8 +46,9 @@ namespace Hammer.DAL
                 new Employee { employeeId = 7, employeeName = "Bill Gates", salary = 25000, departmentId=1, lastModifyDate=DateTime.Parse("2015-10-08") },
                 new Employee { employeeId = 8, employeeName = "Maja Janjic", salary = 30000, departmentId=3, lastModifyDate=DateTime.Parse("2016-05-05") },
                 new Employee { employeeId = 9, employeeName = "Igor Horvat", salary = 30000, departmentId=3, lastModifyDate=DateTime.Parse("2018-03-08") },
-
             };
+            employees.ForEach(s => context.Employees.Add(s));
+            context.SaveChanges();
         }
     }
 }

@@ -13,7 +13,5 @@ namespace Hammer.Models
         public int departmentId { get; set; }
         public DateTime lastModifyDate { get; set; }
 
-        public virtual ICollection<Employee> Employees { get; set; }
-
     }
 }
