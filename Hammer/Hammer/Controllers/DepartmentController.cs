@@ -16,9 +16,25 @@ namespace Hammer.Controllers
         private CompanyContext db = new CompanyContext();
 
         // GET: Department
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
-            return View(db.Departments.ToList());
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.LocationSortParm = sortOrder == "Location" ? "location_desc" : "Location";
+            var departments = from s in db.Departments
+                           select s;
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    departments = departments.OrderByDescending(s => s.departmentName);
+                    break;
+                case "location_desc":
+                    departments = departments.OrderBy(s => s.departmentLocation);
+                    break;            
+                default:
+                    departments = departments.OrderBy(s => s.departmentId);
+                    break;
+            }
+            return View(departments.ToList());
         }
 
         // GET: Department/Details/5

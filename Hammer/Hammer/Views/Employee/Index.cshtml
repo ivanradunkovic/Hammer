@@ -12,44 +12,41 @@
 <table class="table">
     <tr>
         <th>
-            @*@Html.DisplayNameFor(model => model.employeeName) Ovo su defaultne oznake MVC koje povlači iz modela. Dodao sam lable da ljepše izgleda*@
-            <label for="employeeName" class="control-label">Employee Name</label>
+            @Html.ActionLink("Empoyee Name", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @*@Html.DisplayNameFor(model => model.salary) Ovo su defaultne oznake MVC koje povlači iz modela. Dodao sam lable da ljepše izgleda*@
-            <label for="salary" class="control-label">Salary</label>
+            @Html.ActionLink("Salary", "Index", new { sortOrder = ViewBag.SalarySortParam })
+        <th>
+            @Html.ActionLink("Department Id", "Index", new { sortOrder = ViewBag.DepartmentIdSortParam })
         </th>
         <th>
-            @*@Html.DisplayNameFor(model => model.departmentId) Ovo su defaultne oznake MVC koje povlači iz modela. Dodao sam lable da ljepše izgleda*@
-            <label for="departmentId" class="control-label">Department Id</label>
+            @Html.ActionLink("Last Modify Date", "Index", new { sortOrder = ViewBag.LMDSortParam })
         </th>
         <th>
-            @*@Html.DisplayNameFor(model => model.lastModifyDate) Ovo su defaultne oznake MVC koje povlači iz modela. Dodao sam lable da ljepše izgleda*@
-            <label for="lastModifyDate" class="control-label">Last Modify Date</label>
-        </th>
-        <th></th>
+</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.employeeName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.salary)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.departmentId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.lastModifyDate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.employeeId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.employeeId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.employeeId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.employeeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.salary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.departmentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lastModifyDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.employeeId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.employeeId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.employeeId })
+            </td>
+        </tr>
+    }
 
 </table>

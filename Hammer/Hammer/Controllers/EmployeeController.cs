@@ -16,9 +16,33 @@ namespace Hammer.Controllers
         private CompanyContext db = new CompanyContext();
 
         // GET: Employee
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
-            return View(db.Employees.ToList());
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.SalarySortParam = sortOrder == "Salary" ? "salary_desc" : "Salary";
+            ViewBag.DepartmentIdSortParam = sortOrder == "departmentId" ? "departmentId_desc" : "departmentId";
+            ViewBag.LMDSortParam = sortOrder == "lastDateModify" ? "lastDateModify_desc" : "lastDateModify";
+            var employees = from s in db.Employees
+                            select s;
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    employees = employees.OrderByDescending(s => s.employeeName);
+                    break;
+                case "Salary":
+                    employees = employees.OrderBy(s => s.salary);
+                    break;
+                case "departmentId":
+                    employees = employees.OrderBy(s => s.departmentId);
+                    break;
+                case "lastDateModify":
+                    employees = employees.OrderBy(s => s.lastModifyDate);
+                    break;
+                default:
+                    employees = employees.OrderBy(s => s.employeeId);
+                    break;
+            }
+            return View(employees.ToList());
         }
 
         // GET: Employee/Details/5
@@ -35,6 +59,7 @@ namespace Hammer.Controllers
             }
             return View(employee);
         }
+
 
         // GET: Employee/Create
         public ActionResult Create()
