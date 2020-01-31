@@ -154,12 +154,15 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Auth\AccountController.cs" />
+    <Compile Include="Auth\AuthorizeAttribute.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="DAL\CompanyContext.cs" />
     <Compile Include="DAL\CompanyInitializer.cs" />
+    <Compile Include="Auth\FacebookProvider.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -167,11 +170,12 @@
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Startup.Auth.cs" />
-    <Compile Include="Startup.cs" />
-    <Compile Include="UserManager.cs" />
+    <Compile Include="Auth\Startup.Auth.cs" />
+    <Compile Include="Auth\Startup.cs" />
+    <Compile Include="Auth\UserManager.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Auth\Page.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />

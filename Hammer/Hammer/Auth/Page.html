@@ -1,0 +1,111 @@
+﻿<!--@model IProduct.Modules.Library.Custom.GenericView<IProduct.Modules.Library.User>
+    @{
+    Layout = "";
+    }
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+
+    <div class="login">
+        <div class="externalLogin view">
+            <div class="viewData">
+                <button href='@Url.Action("SignIn", new {type= "Facebook"})'
+                        class="loginBtn loginBtn--facebook">
+                    Login with Facebook
+                </button>
+
+                <button href='@Url.Action
+                 ("SignIn", new {type= "Google"})' class="loginBtn loginBtn--google">
+                    Login with Google
+                </button>
+            </div>
+        </div>
+
+        <div class="seperator">
+            <div class="text">OR</div>
+        </div>
+
+        @using (Html.BeginForm("Index", "Account",
+        new { type = IProduct.Modules.SignInApplication.Cookie.ToString() }, FormMethod.Post, null))
+        {
+        <div class=" view">
+            <div class="viewData">
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.View.Email,
+                    new { @class = "form-control", placeholder = "Email", id="email-sign-in" })
+                </div>
+
+                <div class="form-group">
+                    @Html.PasswordFor(x => x.View.Password,
+                    new { @class = "form-control", placeholder = "Password", id = "password-sign-in" })
+                </div>
+
+                <div class="form-group">
+                    @Html.CheckBoxFor(x => x.View.RememberMe,
+                    new { label = "Remember Me", boxClass = "float-left" })
+                    <a class="float-right">Forgot Password?</a>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="m-button loginBtn--signin">
+                        Sign In
+                    </button>
+
+                    <button class="m-button loginBtn--signup">
+                        Sign Up
+                    </button>
+                </div>
+
+            </div>
+        </div>
+        }
+        @Html.Action("SignUp", new { user = "" })
+        @{
+        if (!Model.Success && Model.GetHtmlError() != null)
+        {
+        <div class="error">
+            @Html.Raw(Model.GetHtmlError())
+        </div>
+        }
+        }
+    </div>
+
+    <script>
+    var signupDialog = $("body").dialog(
+        {
+            data: $(".signupForm"),
+            title: "Sign Up",
+            removable: false
+        });
+
+    $(".loginBtn--signup").click(function ()
+    {
+        signupDialog.Show();
+        return false;
+    });
+
+    /// make a button act like a link
+    function toLocation(item)
+    {
+        $(item).each(function ()
+        {
+            var location = $(this).attr("href");
+            if(location && location !== "")
+                $(this).click(function ()
+                {
+                    window.location.href = location;
+                });
+        });
+    }
+
+    $(document).ready(function ()
+    {
+        $(".login input[type=checkbox]").checkBox();
+        $(window).resize(function ()
+        {
+            $(".login").center();
+        });
+        $(".login").center();
+        toLocation($(".m-button"));
+    });
+    </script>-->
