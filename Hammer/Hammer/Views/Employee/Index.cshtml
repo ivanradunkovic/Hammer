@@ -30,6 +30,7 @@
             @Html.ActionLink("Last Modify Date", "Index", new { sortOrder = ViewBag.LMDSortParam })
         </th>
         <th>
+            <asp:Button Text="Export" OnClick="ExportTextFile" runat="server" />
         </th>
     </tr>
 
