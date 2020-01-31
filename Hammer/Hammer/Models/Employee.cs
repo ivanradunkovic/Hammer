@@ -12,6 +12,5 @@ namespace Hammer.Models
         public decimal salary { get; set; }
         public int departmentId { get; set; }
         public DateTime lastModifyDate { get; set; }
-
+        }
     }
-}

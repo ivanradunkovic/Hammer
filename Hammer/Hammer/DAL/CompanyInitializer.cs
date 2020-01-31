@@ -47,6 +47,12 @@ namespace Hammer.DAL
                 new Employee { employeeId = 8, employeeName = "Maja Janjic", salary = 30000, departmentId=3, lastModifyDate=DateTime.Parse("2016-05-05") },
                 new Employee { employeeId = 9, employeeName = "Igor Horvat", salary = 30000, departmentId=3, lastModifyDate=DateTime.Parse("2018-03-08") },
             };
+
+            // Find the average salary of the employee 
+            // Using Average () method 
+            var res = employees.Average(a => a.salary);
+            Console.WriteLine("Average salary of the Employees: {0}", res);
+
             employees.ForEach(s => context.Employees.Add(s));
             context.SaveChanges();
         }
